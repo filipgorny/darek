@@ -1,0 +1,27 @@
+{
+  "name": "package",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "Filip Gorny <filip.gorny@gmail.com>",
+  "homepage": "",
+  "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "jest --forceExit",
+    "start:dev": "ts-node-dev --respawn --notify src/index.ts"
+  },
+  "dependencies": {
+    "@types/jest": "^25.2.1",
+    "@types/node": "^13.13.2",
+    "compromise": "^14.4.0",
+    "jest": "^25.4.0",
+    "rss-parser": "^3.7.6",
+    "ts-jest": "^25.4.0",
+    "ts-node-dev": "^2.0.0",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^3.8.3",
+    "typescript-transform-paths": "^1.1.14"
+  }
+}

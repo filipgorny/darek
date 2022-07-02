@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "target": "es6",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "outDir": "dist",
+    "experimentalDecorators": true,
+    "baseUrl": "./src",
+    "downlevelIteration": true
+  },
+  "include": ["./src/**/*.ts", "./src/**/*.d.ts"],
+  "exclude": ["node_modules", "dist", "tests"]
+}
