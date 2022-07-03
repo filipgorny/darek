@@ -2,38 +2,28 @@ import nlp from "compromise/three";
 import { Input } from "../nlp/input";
 import { Pattern } from "../nlp/pattern";
 import { parse } from "./../nlp/parse";
+import { Conversation } from "./conversation";
+import { Line } from "./line";
+import { Listener } from "./listener";
 import { Reaction } from "./reaction";
 import { NoResult, Result } from "./result";
-
-class PatternListener {
-  constructor(public pattern: Pattern, public reaction: Reaction) {}
-}
+import { Ruleset } from "./ruleset";
 
 export class Bot {
-  public listeners: PatternListener[] = [];
+  ruleset: Ruleset = new Ruleset();
 
   listen(...matches: string[]) {
     const reaction = new Reaction();
     const pattern = new Pattern(...matches);
 
-    this.listeners.push(new PatternListener(pattern, reaction));
+    this.ruleset.listeners.push(new Listener(pattern, reaction));
 
     return reaction;
   }
 
-  react(text: string): Result | never {
-    for (const listener of this.listeners) {
-      for (const match of listener.pattern.matches) {
-        const doc = nlp(text);
+  chat() {
+    const conversation = new Conversation(this.ruleset);
 
-        const str = doc.match(match).text();
-
-        if (str) {
-          return listener.reaction.call(new Input(str));
-        }
-      }
-    }
-
-    return new NoResult();
+    return conversation;
   }
 }
