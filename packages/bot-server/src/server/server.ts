@@ -1,6 +1,6 @@
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
-import { Bot } from "../bot/bot";
+import { Bot } from "bot";
 import { UserBase, DatabaseUserBase } from "./userbase";
 import { Session } from "./session";
 import { User } from "./user";

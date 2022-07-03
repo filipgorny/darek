@@ -1,6 +1,6 @@
 import { User } from "./user";
 import dotenv from "dotenv";
-import { Database } from "../database/database";
+import { Database } from "bot";
 
 export interface UserBase {
   findUserByToken(token: string): Promise<User | null>;

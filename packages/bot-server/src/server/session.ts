@@ -1,4 +1,4 @@
-import { Conversation } from "../bot/conversation";
+import { Conversation } from "bot";
 import { User } from "./user";
 
 export class Session {
