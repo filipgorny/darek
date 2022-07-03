@@ -21,7 +21,7 @@ export class Bot {
     return reaction;
   }
 
-  chat() {
+  begin() {
     const conversation = new Conversation(this.ruleset);
 
     return conversation;

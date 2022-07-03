@@ -1,0 +1,29 @@
+version: "3.8"
+services:
+  database:
+    image: mysql
+    volumes:
+      - ./database:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: bot
+    ports:
+      - 3309:3306
+  bot:
+    image: node:16-alpine
+    working_dir: /usr/src/bot
+    command: npm run dev
+    ports:
+      - 8055:8055
+    volumes:
+      - ./packages/bot:/usr/src/bot
+    restart: unless-stopped
+    depends_on:
+      - database
+    environment:
+      MYSQL_HOST: database
+      MYSQL_PORT: 3309
+      MYSQL_DATABASE: bot
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root

@@ -1,7 +1,7 @@
 import { Input } from "../nlp/input";
 import { v4 as uuid } from "uuid";
 import { Line } from "./line";
-import { NoResult, Result } from "./result";
+import { NoResult, Result, DontUnderstand } from "./result";
 import { Ruleset } from "./ruleset";
 import nlp from "compromise";
 import { Thread } from "./thread";
@@ -38,6 +38,6 @@ export class Conversation {
       }
     }
 
-    return new NoResult();
+    return new DontUnderstand();
   }
 }
